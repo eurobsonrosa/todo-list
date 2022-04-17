@@ -1,10 +1,14 @@
 footer.footer {
-    display: flex;
-    position: sticky;
+    position: fixed;
+    justify-self: center;
     bottom: 0px;
     height: 40px;
-    align-items: center;
-    padding: 0 25px;
+    width: 100vw;
+    padding: 0px;
     background-color: #FFF;
-    box-shadow: var(--shadow);
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
 }
