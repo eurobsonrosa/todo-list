@@ -1,11 +1,11 @@
 footer.footer {
-    position: fixed;
-    justify-self: center;
-    bottom: 0px;
     height: 40px;
+    position: sticky;
+    bottom: 0px;
     width: 100vw;
     padding: 0px;
     background-color: #FFF;
+    text-align: center;
 }
 
 footer a {
