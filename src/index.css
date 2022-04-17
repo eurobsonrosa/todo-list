@@ -64,13 +64,12 @@ header {
 }
 
 [complete="true"] {
-  background-color: #999;
+  background-color: #999;  
 }
 
-[complete="false"] {
-  background-color: none;
+[complete="true"]>.todoText {
+  text-decoration: line-through;
 }
-
 
 @media(max-width: 600px) {
   .main {

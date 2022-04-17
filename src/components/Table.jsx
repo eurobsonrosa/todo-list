@@ -44,7 +44,7 @@ class Table extends Component {
                 </div>
                 <div className="btnsCard">
                     {!todo.complete ? <Button name="success" icon="check" onclick={(e) => this.completeTask(todo.id)} /> :
-                        <Button name="warning" icon="pencil" onclick={(e) => this.completeTask(todo.id)} />}
+                        <Button name="warning" icon="edit" onclick={(e) => this.completeTask(todo.id)} />}
                     
                     <Button name="danger" icon="remove" onclick={() => this.removeTask(todo.id)} />
                 </div>
