@@ -1,0 +1,10 @@
+footer.footer {
+    display: flex;
+    position: sticky;
+    bottom: 0px;
+    height: 40px;
+    align-items: center;
+    padding: 0 25px;
+    background-color: #FFF;
+    box-shadow: var(--shadow);
+}
