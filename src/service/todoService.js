@@ -27,14 +27,12 @@ const ToDoService = {
         }
     },
 
-    complete: (e, id) => {
+    complete: (id) => {
         try {
             let todoList = JSON.parse(localStorage.getItem('todo'))
             const index = todoList.findIndex(todo => todo.id === id)
             todoList[index].complete = !todoList[index].complete
             localStorage.setItem('todo', JSON.stringify(todoList))
-            const elem = e.target.parentElement.parentElement
-            elem.style.backgroundColor = todoList[index].complete ? '#999' : ''
 
         } catch (error) {
             throw error
