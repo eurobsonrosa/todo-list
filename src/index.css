@@ -1,13 +1,67 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+* {
+  font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+
+
+.form-group {
+  display: flex;  
+  }
+
+.TodoCard {
+  display: flex;  
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #EBEAED;
+  border-radius: 5px;
+  opacity: 1;
+}
+
+.todoText {
+  max-height: 200px;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+
+.todoText p {
+  margin: 0px;
+}
+
+.btnsCard{
+  display: flex;
+}
+
+.btn {
+  margin: 5px 0px 5px 5px;
+}
+
+[complete] {
+  background-color: #444;
+}
+
+
+@media(max-width: 600px) {
+  .main {
+    width: 90vw;
+  }
 }
