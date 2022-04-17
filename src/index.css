@@ -19,6 +19,14 @@ body {
   width: 300px;
 }
 
+header {
+  position: sticky;
+  top: 0px;
+  background-color: #FFF;
+  width: 100vw;
+  text-align: center;
+}
+
 
 .form-group {
   display: flex;  
@@ -55,8 +63,12 @@ body {
   margin: 5px 0px 5px 5px;
 }
 
-[complete] {
-  background-color: #444;
+[complete="true"] {
+  background-color: #999;
+}
+
+[complete="false"] {
+  background-color: none;
 }
 
 
