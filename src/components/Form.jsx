@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TodoService from '../service/todoService'
-import Table from "./Table";
 
 const Form = (props) => {
 
@@ -9,7 +8,8 @@ const Form = (props) => {
     const [complete, setComplete] = useState(false)
     
     const HandleSubmit = async (e) => {
-        e.preventDefault()      
+        e.preventDefault()
+      
         try {
             if (text !== '') {
                 await TodoService.save(text, id, complete);

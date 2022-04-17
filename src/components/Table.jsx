@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import TodoService from '../service/todoService'
 import Button from "./Button";
 import Form from "./Form";
-import Header from "./Header";
 
 class Table extends Component {
 
