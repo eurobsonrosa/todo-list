@@ -1,68 +1,49 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import TodoService from '../service/todoService'
 import Button from "./Button";
-import Form from "./Form";
+import { connect, useSelector} from 'react-redux'
+import { todoGetList } from '../redux/actions'
 
-class Table extends Component {
+const Table = (props) => {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            list: [],
-        }
-    }
+    const list = useSelector(state => state.todo)
+ 
+    useEffect(() => {
+        props.todoGetList()      
+    }, [])
 
-    componentWillMount() {
-        try {
-            this.setState({ list: TodoService.getList() })
-        } catch (error) {
-            throw error
-        }
-    }
-
-    removeTask = (id) => {
+    const removeTask = (id) => {
         TodoService.remove(id)
-        this.updateList()
+        updateList()
     }
 
-    completeTask = (e, id) => {
+    const completeTask = (e, id) => {
         TodoService.complete(e, id)
-        this.updateList()
+        updateList()
     }
 
-    updateList ()  {
-        this.setState({ list: TodoService.getList() })
+    const updateList = () => {
+        props.todoGetList()  
     }
 
-    renderCards() {
-        return this.state.list && this.state.list.map(todo => {
-            
-            return <div complete={`${todo.complete}`} className="TodoCard" key={todo.id}>
-                <div className="todoText">
-                    <p>{todo.text}</p>
-                </div>
-                <div className="btnsCard">
-                    {!todo.complete ? <Button name="success" icon="check" onclick={(e) => this.completeTask(todo.id)} /> :
-                        <Button name="warning" icon="edit" onclick={(e) => this.completeTask(todo.id)} />}
-                    
-                    <Button name="danger" icon="remove" onclick={() => this.removeTask(todo.id)} />
-                </div>
+
+    return list && list.map(todo => {
+
+        return <div complete={`${todo.complete}`} className="TodoCard" key={todo.id}>
+            <div className="todoText">
+                <p>{todo.text}</p>
             </div>
-        })
-    }
+            <div className="btnsCard">
+                {!todo.complete ? <Button name="success" icon="check" onclick={(e) => completeTask(todo.id)} /> :
+                    <Button name="warning" icon="edit" onclick={(e) => completeTask(todo.id)} />}
 
-    renderForm() {
-        return <Form>
-            <Button name="primary" icon="plus" onclick={() => this.updateList()}/>
-        </Form>
-    }
-    
-    render() {
-        return <React.Fragment>
-            {this.renderForm()}
-            {this.renderCards()}
-        </React.Fragment>
-    }
+                <Button name="danger" icon="remove" onclick={() => removeTask(todo.id)} />
+            </div>
+        </div>
+    })
+
+
+
 }
 
-export default Table
+export default connect(null, { todoGetList })(Table)
